@@ -14,7 +14,9 @@ import {
   hideItemPopup,
   setSelectedItem,
   toggleTypeFilter,
-  toggleColorFilter
+  toggleColorFilter,
+  changeSizeFilter,
+  changePriceFilter
 } from "./actions";
 
 const MEN_CLOTHING_CATEGORIES = [
@@ -232,9 +234,10 @@ function ColorFilter() {
 
 function SizeFilter() {
   const sizeFilter = useSelector(state => state.sizeFilter);
+  const dispatch = useDispatch();
   
-  const handleSelect = event => {
-    return;
+  const handleSelect = (key) => {
+    dispatch(changeSizeFilter(key));
   };
 
   return (
@@ -243,26 +246,26 @@ function SizeFilter() {
         <Nav
           className="size-grid"
           variant="pills"
-          activeKey="all"
           onSelect={handleSelect}
+          defaultActiveKey="all"
         >
           <Nav.Item>
             <Nav.Link eventKey="all">ALL</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="xs">XS</Nav.Link>
+            <Nav.Link eventKey="XS">XS</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="s">S</Nav.Link>
+            <Nav.Link eventKey="S">S</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="m">M</Nav.Link>
+            <Nav.Link eventKey="M">M</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="l">L</Nav.Link>
+            <Nav.Link eventKey="L">L</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="xl">XL</Nav.Link>
+            <Nav.Link eventKey="XL">XL</Nav.Link>
           </Nav.Item>
         </Nav>
       </div>
@@ -373,10 +376,15 @@ function ShopItem(props) {
 function PriceSlider() {
   const min = 10;
   const max = 50;
-  const [[curMin, curMax], setValue] = useState([min, max]);
+  const [curMin, curMax] = useSelector(state => state.priceFilter);
+  const dispatch = useDispatch();
 
   const trackStyle = [{ backgroundColor: "blue" }];
   const railStyle = { backgroundColor: "white" };
+
+  const onChange = (value) => {
+    dispatch(changePriceFilter(value));
+  }
 
   return (
     <div className="price-slider">
@@ -390,7 +398,7 @@ function PriceSlider() {
         max={max}
         value={[curMin, curMax]}
         allowCross={false}
-        onChange={value => setValue(value)}
+        onChange={onChange}
         trackStyle={trackStyle}
         railStyle={railStyle}
       />

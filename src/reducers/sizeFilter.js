@@ -1,10 +1,10 @@
 const defaultState = {
     all: true,
-    xs: false,
-    s: false,
-    m: false,
-    l: false,
-    xl: false
+    XS: false,
+    S: false,
+    M: false,
+    L: false,
+    XL: false
 };
 
 const sizeFilterReducer = (state = defaultState, action) => {
