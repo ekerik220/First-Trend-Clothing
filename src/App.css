@@ -137,6 +137,7 @@
   background: grey;
   border: none;
   text-shadow: none;
+  cursor: auto;
 }
 
 .size-select {
@@ -361,8 +362,14 @@
 .type-flex-box input {
   margin-right: 5px;
 }
+
+.price-slider-container {
+  display: flex;
+  justify-content: center;
+}
+
 .price-slider {
-  width: 200px;
+  width: 90%;
   text-align: center;
 }
 

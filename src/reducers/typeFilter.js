@@ -1,9 +1,9 @@
 const defaultState = {
-    shirt: true,
-    polo: true,
-    longSleeve: true,
-    sweater: true,
-    jacket: true
+    shirt: false,
+    polo: false,
+    longSleeve: false,
+    sweater: false,
+    jacket: false
 };
 
 const typeFilterReducer = (state = defaultState, action) => {

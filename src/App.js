@@ -159,6 +159,7 @@ function FilterControls() {
 
 function TypeFilter() {
   const dispatch = useDispatch();
+  const typeFilter = useSelector(state => state.typeFilter);
 
   const typeInputHandler = event => {
     dispatch(toggleTypeFilter(event.target.name));
@@ -173,7 +174,7 @@ function TypeFilter() {
             type="checkbox"
             name="shirt"
             onChange={typeInputHandler}
-            defaultChecked="true"
+            checked={typeFilter.shirt}
           />
           Shirt
         </label>
@@ -182,7 +183,7 @@ function TypeFilter() {
             type="checkbox"
             name="polo"
             onChange={typeInputHandler}
-            defaultChecked="true"
+            checked={typeFilter.polo}
           />
           Polo
         </label>
@@ -191,7 +192,7 @@ function TypeFilter() {
             type="checkbox"
             name="longSleeve"
             onChange={typeInputHandler}
-            defaultChecked="true"
+            checked={typeFilter.longSleeve}
           />
           Long Sleeve
         </label>
@@ -200,7 +201,7 @@ function TypeFilter() {
             type="checkbox"
             name="sweater"
             onChange={typeInputHandler}
-            defaultChecked="true"
+            checked={typeFilter.sweater}
           />
           Sweater
         </label>
@@ -209,8 +210,7 @@ function TypeFilter() {
             type="checkbox"
             name="jacket"
             onChange={typeInputHandler}
-            defaultChecked="true"
-            s
+            checked={typeFilter.jacket}
           />
           Jacket
         </label>
@@ -298,7 +298,7 @@ function PriceFilter() {
   return (
     <div className="filter-box price-filter">
         <h4>Price:</h4>
-        <div>
+        <div className="price-slider-container">
           <PriceSlider />
         </div>
       </div>
@@ -312,6 +312,20 @@ function ItemsArea() {
   const priceFilter = useSelector(state => state.priceFilter);
 
   const filteredItemList = CLOTHING_DATA.filter((item) => {
+    const typeCheck = () => {
+      let noneSelected = true;
+      for(const type in typeFilter) {
+        if(typeFilter[type] === true) {
+          noneSelected = false;
+          break;
+        }
+      }
+      if(noneSelected)
+        return true;
+      else
+        return typeFilter[item.type];
+    }
+
     const sizeAvailable = () => {
       if(sizeFilter.all)
         return true;
@@ -341,7 +355,7 @@ function ItemsArea() {
         return colorFilter[item.color];
     }
 
-    return   (typeFilter[item.type] 
+    return   (typeCheck()
           && colorCheck()
           && sizeAvailable()
           && withinBudget());
