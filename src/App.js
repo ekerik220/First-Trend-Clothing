@@ -581,6 +581,11 @@ function ShoppingCart() {
   const cartShowing = useSelector(state => state.cartShowing) ?
                       "visible" : "hidden";
   const checkoutButtonDisabled = cart.length > 0 ? false : true;
+  let totalPrice = 0;
+  
+  for(const item of cart) {
+    totalPrice += item.price * item.quantity;
+  }
 
   const closeCart = () => {
     dispatch(hideCart());
@@ -589,7 +594,10 @@ function ShoppingCart() {
   return (
     <div className="shopping-cart" style={{ visibility: cartShowing }}>
       <i className="fa fa-times item-popup-x" onClick={closeCart}></i>
-      <div className="cart-title">Cart</div>
+      <div className="cart-title">
+        <span>Cart</span>
+        {cart.length > 0 && <span>Total: ${totalPrice}</span>}
+      </div>
       <div className="cart-item-list">
         {cart.length === 0 && <span className="empty-cart-span">Cart is empty.</span>}
         {cart.map(item => {
@@ -601,6 +609,7 @@ function ShoppingCart() {
               <img src={require("" + item.img)} alt=""></img>
               <span>{item.name}</span>
               <div className="size-tag">{item.size}</div>
+              <span>${item.price * item.quantity}</span>
               <input type="number" 
                      min="1" 
                      max="50" 
