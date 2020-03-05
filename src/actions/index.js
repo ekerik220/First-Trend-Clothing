@@ -58,3 +58,36 @@ export const changePriceFilter = (priceRange) => {
         payload: priceRange
     }
 }
+
+export const addCartItem = (item) => {
+    return {
+        type: 'ADD_CART_ITEM',
+        payload: item
+    }
+}
+
+export const removeCartItem = (item) => {
+    return {
+        type: 'REMOVE_CART_ITEM',
+        payload: item
+    }
+}
+
+export const updateCartItem = (item) => {
+    return {
+        type: 'UPDATE_CART_ITEM',
+        payload: item
+    }
+}
+
+export const showCart = () => {
+    return {
+        type: 'SHOW_CART'
+    }
+}
+
+export const hideCart = () => {
+    return {
+        type: 'HIDE_CART'
+    }
+}

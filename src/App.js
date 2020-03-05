@@ -16,7 +16,12 @@ import {
   toggleTypeFilter,
   toggleColorFilter,
   changeSizeFilter,
-  changePriceFilter
+  changePriceFilter,
+  addCartItem,
+  showCart,
+  hideCart,
+  updateCartItem,
+  removeCartItem
 } from "./actions";
 
 const MEN_CLOTHING_CATEGORIES = [
@@ -67,12 +72,25 @@ const CLOTHING_DATA = [
     img: "./img/stock-shirt.jpg",
     color: "green",
     type: "longSleeve"
+  },
+  {
+    name: "Red Shirt",
+    sizes: ["S", "M"],
+    price: "12",
+    img: "./img/stock-shirt.jpg",
+    color: "red",
+    type: "shirt"
   }
 ];
 
 function App() {
+  const itemPopupShowing = useSelector(state => state.itemPopupShowing);
+  const cartShowing = useSelector(state => state.cartShowing);
+  const overlayShowing = itemPopupShowing || cartShowing;
+
   return (
     <div className="app">
+      <div className="content-wrapper">
       <Navigation />
       <CategoryDisplay
         img={men_clothing_bg}
@@ -84,6 +102,8 @@ function App() {
       </section>
       <ItemPopUp />
       <ShoppingCart />
+      </div>
+      {overlayShowing && <div className="pop-up-overlay" />}
     </div>
   );
 }
@@ -339,6 +359,8 @@ function ItemsArea() {
               />
             );
           })}
+          {filteredItemList.length === 0  && 
+            <span className="no-matching-items">No matching items.</span>}
     </div>
   );
 }
@@ -407,10 +429,16 @@ function PriceSlider() {
 }
 
 function ShoppingCartIcon() {
-  const counter = useSelector(state => state.cartCount);
+  const cart = useSelector(state => state.cart);
+  const dispatch = useDispatch();
+  let counter = 0;
+
+  cart.forEach(item => {
+    counter += item.quantity;
+  });
 
   return (
-    <div className="shopping-cart-icon">
+    <div className="shopping-cart-icon" onClick={() => dispatch(showCart())}>
       <i className="fas fa-shopping-cart"></i>
       <span>{counter}</span>
     </div>
@@ -418,45 +446,115 @@ function ShoppingCartIcon() {
 }
 
 function ItemPopUp() {
+  const [XS, setXS] = useState(0);
+  const [S, setS] = useState(0);
+  const [M, setM] = useState(0);
+  const [L, setL] = useState(0);
+  const [XL, setXL] = useState(0);
+
   const dispatch = useDispatch();
-  const itemPopupShowing = useSelector(state => state.itemPopupShowing);
-  const visibility = itemPopupShowing ? "visible" : "hidden";
+  const itemPopupShowing = useSelector(state => state.itemPopupShowing) ? 
+                          "visible" : "hidden";
+  const allItemsZero = !(XS || S || M || L || XL);
+
+  const selectedItem = useSelector(state => state.selectedItem);
+  const xsDisabled = !selectedItem.sizes.includes("XS");
+  const sDisabled = !selectedItem.sizes.includes("S");
+  const mDisabled = !selectedItem.sizes.includes("M");
+  const lDisabled = !selectedItem.sizes.includes("L");
+  const xlDisabled = !selectedItem.sizes.includes("XL");
 
   const hidePopup = () => {
     dispatch(hideItemPopup());
+    setXS(0);
+    setS(0);
+    setM(0);
+    setL(0);
+    setXL(0);
+  };
+
+  const addToCart = () => {
+    const size_arr = [["XS", XS], ["S", S], ["M", M], ["L", L], ["XL", XL]];
+    for(const size of size_arr) {
+      console.log(size[0] + " " + size[1]);
+      if(size[1] > 0) {
+        dispatch(addCartItem({
+          name: selectedItem.name,
+          price: selectedItem.price,
+          img: selectedItem.img,
+          size: size[0],
+          quantity: size[1]
+        }));
+      }
+    }
+    hidePopup();
   };
 
   return (
-    <div className="item-popup" style={{ visibility: visibility }}>
+    <div className="item-popup" style={{ visibility: itemPopupShowing }}>
       <i className="fa fa-times item-popup-x" onClick={hidePopup}></i>
       <div className="item-popup-title-bar">
-        <div className="item-popup-name">Red Shirt</div>
-        <div className="item-popup-price">$12</div>
+        <div className="item-popup-name">{selectedItem.name}</div>
+        <div className="item-popup-price">${selectedItem.price}</div>
       </div>
       <div className="item-popup-item-area">
         <img
-          src={require("./img/stock-shirt.jpg")}
+          src={require("" + selectedItem.img)}
           alt=""
           className="item-popup-img"
         />
         <div className="item-popup-purchase">
           <div className="size-select">
             <span>XS</span>
-            <input type="number" min="0" max="50" placeholder="0"></input>
+              <input type="number" 
+                     min="0" 
+                     max="50" 
+                     placeholder="0"
+                     onChange={(e) => setXS(parseInt(e.target.value))}
+                     value={XS}
+                     disabled={xsDisabled} />
           </div>
           <div className="size-select">
             <span>S</span>
-            <input type="number" min="0" max="50" placeholder="0"></input>
+              <input type="number" 
+                     min="0" 
+                     max="50" 
+                     placeholder="0" 
+                     onChange={(e) => setS(parseInt(e.target.value))}
+                     value={S}
+                     disabled={sDisabled} />
           </div>
           <div className="size-select">
             <span>M</span>
-            <input type="number" min="0" max="50" placeholder="0"></input>
+              <input type="number" 
+                     min="0" 
+                     max="50" 
+                     placeholder="0" 
+                     onChange={(e) => setM(parseInt(e.target.value))}
+                     value={M}
+                     disabled={mDisabled} />
+          </div>
+          <div className="size-select">
+            <span>L</span>
+              <input type="number" 
+                     min="0" 
+                     max="50" 
+                     placeholder="0" 
+                     onChange={(e) => setL(parseInt(e.target.value))}
+                     value={L}
+                     disabled={lDisabled} />
           </div>
           <div className="size-select">
             <span>XL</span>
-            <input type="number" min="0" max="50" placeholder="0"></input>
+              <input type="number" 
+                     min="0" 
+                     max="50" 
+                     placeholder="0" 
+                     onChange={(e) => setXL(parseInt(e.target.value))}
+                     value={XL}
+                     disabled={xlDisabled} />
           </div>
-          <button className="add-to-cart">Add To Cart</button>
+          <button className="add-to-cart" onClick={addToCart} disabled={allItemsZero}>Add To Cart</button>
         </div>
       </div>
     </div>
@@ -464,20 +562,49 @@ function ItemPopUp() {
 }
 
 function ShoppingCart() {
+  const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
+  const cartShowing = useSelector(state => state.cartShowing) ?
+                      "visible" : "hidden";
+  const checkoutButtonDisabled = cart.length > 0 ? false : true;
+
+  const closeCart = () => {
+    dispatch(hideCart());
+  }
+
   return (
-    <div className="shopping-cart">
+    <div className="shopping-cart" style={{ visibility: cartShowing }}>
+      <i className="fa fa-times item-popup-x" onClick={closeCart}></i>
       <div className="cart-title">Cart</div>
       <div className="cart-item-list">
-        <div className="cart-item">
-          <i className="fa fa-times"></i>
-          <img src={require("./img/stock-shirt.jpg")} alt=""></img>
-          <span>Red Shirt</span>
-          <div className="size-tag">M</div>
-          <input type="number" min="0" max="50"></input>
-        </div>
+        {cart.length === 0 && <span className="empty-cart-span">Cart is empty.</span>}
+        {cart.map(item => {
+          return (
+            <div className="cart-item">
+              <i className="fa fa-times"
+                 onClick={() => {dispatch(removeCartItem(item))}}>
+              </i>
+              <img src={require("" + item.img)} alt=""></img>
+              <span>{item.name}</span>
+              <div className="size-tag">{item.size}</div>
+              <input type="number" 
+                     min="1" 
+                     max="50" 
+                     value={item.quantity}
+                     onChange={(event) => {dispatch(updateCartItem({
+                       name: item.name,
+                       size: item.size,
+                       price: item.price,
+                       img: item.img,
+                       quantity: parseInt(event.target.value)
+                     }))}}>
+              </input>
+            </div>
+          );
+        })}
       </div>
       <div className="check-out">
-        <button>Check Out</button>
+        <button className="check-out-button" disabled={checkoutButtonDisabled}>Check Out</button>
       </div>
     </div>
   );

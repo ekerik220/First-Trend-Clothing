@@ -5,6 +5,8 @@ import typeFilter from './typeFilter';
 import colorFilter from './colorFilter';
 import sizeFilter from './sizeFilter';
 import priceFilter from './priceFilter';
+import cart from './cart';
+import cartShowing from './cartShowing';
 import {combineReducers} from 'redux';
 
 const allReducers = combineReducers({
@@ -14,7 +16,9 @@ const allReducers = combineReducers({
     typeFilter,
     colorFilter,
     sizeFilter,
-    priceFilter
+    priceFilter,
+    cart,
+    cartShowing
 });
 
 export default allReducers;
