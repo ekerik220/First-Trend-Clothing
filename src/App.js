@@ -50,35 +50,283 @@ const MEN_CLOTHING_CATEGORIES = [
 
 const CLOTHING_DATA = [
   {
-    name: "Red Shirt",
+    name: "Blue Sweater",
     sizes: ["S", "M"],
-    price: "12",
-    img: "./img/stock-shirt.jpg",
-    color: "red",
-    type: "shirt"
+    price: "35",
+    img: "./img/clothing/blue-sweatshirt.jpg",
+    color: "blue",
+    type: "sweater"
   },
   {
-    name: "Yellow Polo",
-    sizes: ["S", "M"],
-    price: "12",
-    img: "./img/stock-shirt.jpg",
-    color: "yellow",
+    name: "Blue Jacket",
+    sizes: ["S", "M", "XL"],
+    price: "45",
+    img: "./img/clothing/blue-jacket.jpg",
+    color: "blue",
+    type: "jacket"
+  },
+  {
+    name: "Blue Long Sleeve",
+    sizes: ["M", "L"],
+    price: "24",
+    img: "./img/clothing/blue-longslv.jpg",
+    color: "blue",
+    type: "longSleeve"
+  },
+  {
+    name: "Blue Polo",
+    sizes: ["M", "XL"],
+    price: "18",
+    img: "./img/clothing/blue-poloshirt.jpg",
+    color: "blue",
     type: "polo"
   },
   {
-    name: "Green Long Sleeve",
-    sizes: ["S", "M", "L"],
+    name: "Blue Shirt",
+    sizes: ["S", "M"],
     price: "12",
-    img: "./img/stock-shirt.jpg",
+    img: "./img/clothing/blue-shirt.jpg",
+    color: "blue",
+    type: "shirt"
+  },
+  {
+    name: "Green Sweater",
+    sizes: ["S", "M"],
+    price: "35",
+    img: "./img/clothing/green-sweatshirt.jpg",
+    color: "green",
+    type: "sweater"
+  },
+  {
+    name: "Green Jacket",
+    sizes: ["S", "L"],
+    price: "45",
+    img: "./img/clothing/green-jacket.jpg",
+    color: "green",
+    type: "jacket"
+  },
+  {
+    name: "Green Long Sleeve",
+    sizes: ["M", "L", "XL"],
+    price: "24",
+    img: "./img/clothing/green-longslv.jpg",
     color: "green",
     type: "longSleeve"
   },
   {
-    name: "Red Shirt",
-    sizes: ["S", "M"],
+    name: "Green Polo",
+    sizes: ["M"],
+    price: "18",
+    img: "./img/clothing/green-poloshirt.jpg",
+    color: "green",
+    type: "polo"
+  },
+  {
+    name: "Green Shirt",
+    sizes: ["S"],
     price: "12",
-    img: "./img/stock-shirt.jpg",
+    img: "./img/clothing/green-shirt.jpg",
+    color: "green",
+    type: "shirt"
+  },
+  {
+    name: "Orange Sweater",
+    sizes: ["S", "M", "L"],
+    price: "35",
+    img: "./img/clothing/orange-sweatshirt.jpg",
+    color: "orange",
+    type: "sweater"
+  },
+  {
+    name: "Orange Jacket",
+    sizes: ["XS", "S", "M"],
+    price: "45",
+    img: "./img/clothing/orange-jacket.jpg",
+    color: "orange",
+    type: "jacket"
+  },
+  {
+    name: "Orange Long Sleeve",
+    sizes: ["XS", "M"],
+    price: "24",
+    img: "./img/clothing/orange-longslv.jpg",
+    color: "orange",
+    type: "longSleeve"
+  },
+  {
+    name: "Orange Polo",
+    sizes: ["XS", "L"],
+    price: "18",
+    img: "./img/clothing/orange-poloshirt.jpg",
+    color: "orange",
+    type: "polo"
+  },
+  {
+    name: "Orange Shirt",
+    sizes: ["S", "M", "XL"],
+    price: "12",
+    img: "./img/clothing/orange-shirt.jpg",
+    color: "orange",
+    type: "shirt"
+  },
+  {
+    name: "Pink Sweater",
+    sizes: ["L", "XL"],
+    price: "35",
+    img: "./img/clothing/pink-sweatshirt.jpg",
+    color: "pink",
+    type: "sweater"
+  },
+  {
+    name: "Pink Jacket",
+    sizes: ["XS", "XL"],
+    price: "45",
+    img: "./img/clothing/pink-jacket.jpg",
+    color: "pink",
+    type: "jacket"
+  },
+  {
+    name: "Pink Long Sleeve",
+    sizes: ["XS", "L"],
+    price: "24",
+    img: "./img/clothing/pink-longslv.jpg",
+    color: "pink",
+    type: "longSleeve"
+  },
+  {
+    name: "Pink Polo",
+    sizes: ["S", "M"],
+    price: "18",
+    img: "./img/clothing/pink-poloshirt.jpg",
+    color: "pink",
+    type: "polo"
+  },
+  {
+    name: "Pink Shirt",
+    sizes: ["S", "L"],
+    price: "12",
+    img: "./img/clothing/pink-shirt.jpg",
+    color: "pink",
+    type: "shirt"
+  },
+  {
+    name: "Purple Sweater",
+    sizes: ["S", "XL"],
+    price: "35",
+    img: "./img/clothing/purple-sweatshirt.jpg",
+    color: "purple",
+    type: "sweater"
+  },
+  {
+    name: "Purple Jacket",
+    sizes: ["XS", "L"],
+    price: "45",
+    img: "./img/clothing/purple-jacket.jpg",
+    color: "purple",
+    type: "jacket"
+  },
+  {
+    name: "Purple Long Sleeve",
+    sizes: ["XS", "M", "L"],
+    price: "24",
+    img: "./img/clothing/purple-longslv.jpg",
+    color: "purple",
+    type: "longSleeve"
+  },
+  {
+    name: "Purple Polo",
+    sizes: ["S", "M"],
+    price: "18",
+    img: "./img/clothing/purple-poloshirt.jpg",
+    color: "purple",
+    type: "polo"
+  },
+  {
+    name: "Purple Shirt",
+    sizes: ["S", "M", "L"],
+    price: "12",
+    img: "./img/clothing/purple-shirt.jpg",
+    color: "purple",
+    type: "shirt"
+  },
+  {
+    name: "Red Sweater",
+    sizes: ["XS", "M"],
+    price: "35",
+    img: "./img/clothing/red-sweatshirt.jpg",
     color: "red",
+    type: "sweater"
+  },
+  {
+    name: "Red Jacket",
+    sizes: ["S", "L"],
+    price: "45",
+    img: "./img/clothing/red-jacket.jpg",
+    color: "red",
+    type: "jacket"
+  },
+  {
+    name: "Red Long Sleeve",
+    sizes: ["S", "XL"],
+    price: "24",
+    img: "./img/clothing/red-longslv.jpg",
+    color: "red",
+    type: "longSleeve"
+  },
+  {
+    name: "Red Polo",
+    sizes: ["XS", "M", "L"],
+    price: "18",
+    img: "./img/clothing/red-poloshirt.jpg",
+    color: "red",
+    type: "polo"
+  },
+  {
+    name: "Red Shirt",
+    sizes: ["S", "M", "L"],
+    price: "12",
+    img: "./img/clothing/red-shirt.jpg",
+    color: "red",
+    type: "shirt"
+  },
+  {
+    name: "Yellow Sweater",
+    sizes: ["XS", "M"],
+    price: "35",
+    img: "./img/clothing/yellow-sweatshirt.jpg",
+    color: "yellow",
+    type: "sweater"
+  },
+  {
+    name: "Yellow Jacket",
+    sizes: ["S", "L"],
+    price: "45",
+    img: "./img/clothing/yellow-jacket.jpg",
+    color: "yellow",
+    type: "jacket"
+  },
+  {
+    name: "Yellow Long Sleeve",
+    sizes: ["M"],
+    price: "24",
+    img: "./img/clothing/yellow-longslv.jpg",
+    color: "yellow",
+    type: "longSleeve"
+  },
+  {
+    name: "Yellow Polo",
+    sizes: ["S"],
+    price: "18",
+    img: "./img/clothing/yellow-poloshirt.jpg",
+    color: "yellow",
+    type: "polo"
+  },
+  {
+    name: "Yellow Shirt",
+    sizes: ["S", "M", "L"],
+    price: "12",
+    img: "./img/clothing/yellow-shirt.jpg",
+    color: "yellow",
     type: "shirt"
   }
 ];
