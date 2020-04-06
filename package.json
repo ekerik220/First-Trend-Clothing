@@ -2,7 +2,7 @@
   "name": "first-trend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ekerik220.github.io/first-trend",
+  "homepage": "http://ekerik220.github.io/First-Trend-Clothing",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@material-ui/core": "^4.9.4",
@@ -10,7 +10,7 @@
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
-    "rc-slider": "^9.2.2",
+    "rc-slider": "^9.2.2",s
     "react": "^16.12.0",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
