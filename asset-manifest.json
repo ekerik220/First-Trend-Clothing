@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/First-Trend-Clothing/static/css/main.98abbacb.chunk.css",
-    "main.js": "/First-Trend-Clothing/static/js/main.cd463b33.chunk.js",
-    "main.js.map": "/First-Trend-Clothing/static/js/main.cd463b33.chunk.js.map",
+    "main.css": "/First-Trend-Clothing/static/css/main.0ab12e5c.chunk.css",
+    "main.js": "/First-Trend-Clothing/static/js/main.3e314341.chunk.js",
+    "main.js.map": "/First-Trend-Clothing/static/js/main.3e314341.chunk.js.map",
     "runtime-main.js": "/First-Trend-Clothing/static/js/runtime-main.eea905e8.js",
     "runtime-main.js.map": "/First-Trend-Clothing/static/js/runtime-main.eea905e8.js.map",
     "static/css/2.a35bfe2f.chunk.css": "/First-Trend-Clothing/static/css/2.a35bfe2f.chunk.css",
     "static/js/2.a80fa12e.chunk.js": "/First-Trend-Clothing/static/js/2.a80fa12e.chunk.js",
     "static/js/2.a80fa12e.chunk.js.map": "/First-Trend-Clothing/static/js/2.a80fa12e.chunk.js.map",
     "index.html": "/First-Trend-Clothing/index.html",
-    "precache-manifest.157106656a2a233e349ee9a6592786e2.js": "/First-Trend-Clothing/precache-manifest.157106656a2a233e349ee9a6592786e2.js",
+    "precache-manifest.fc00cd7d1fe9090d10470ae9c00b19b4.js": "/First-Trend-Clothing/precache-manifest.fc00cd7d1fe9090d10470ae9c00b19b4.js",
     "service-worker.js": "/First-Trend-Clothing/service-worker.js",
     "static/css/2.a35bfe2f.chunk.css.map": "/First-Trend-Clothing/static/css/2.a35bfe2f.chunk.css.map",
-    "static/css/main.98abbacb.chunk.css.map": "/First-Trend-Clothing/static/css/main.98abbacb.chunk.css.map",
+    "static/css/main.0ab12e5c.chunk.css.map": "/First-Trend-Clothing/static/css/main.0ab12e5c.chunk.css.map",
     "static/js/2.a80fa12e.chunk.js.LICENSE.txt": "/First-Trend-Clothing/static/js/2.a80fa12e.chunk.js.LICENSE.txt",
     "static/media/blue-jacket.jpg": "/First-Trend-Clothing/static/media/blue-jacket.90c6a4d5.jpg",
     "static/media/blue-longslv.jpg": "/First-Trend-Clothing/static/media/blue-longslv.a33bfe02.jpg",
@@ -51,7 +51,7 @@
     "static/js/runtime-main.eea905e8.js",
     "static/css/2.a35bfe2f.chunk.css",
     "static/js/2.a80fa12e.chunk.js",
-    "static/css/main.98abbacb.chunk.css",
-    "static/js/main.cd463b33.chunk.js"
+    "static/css/main.0ab12e5c.chunk.css",
+    "static/js/main.3e314341.chunk.js"
   ]
 }

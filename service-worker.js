@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/First-Trend-Clothing/precache-manifest.157106656a2a233e349ee9a6592786e2.js"
+  "/First-Trend-Clothing/precache-manifest.fc00cd7d1fe9090d10470ae9c00b19b4.js"
 );
 
 self.addEventListener('message', (event) => {

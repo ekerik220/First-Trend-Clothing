@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9d34bea0417962460401525b93e39a3c",
+    "revision": "3a1758753416a387494ceb1bfc9d5a17",
     "url": "/First-Trend-Clothing/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/First-Trend-Clothing/static/css/2.a35bfe2f.chunk.css"
   },
   {
-    "revision": "cfea9d8a0adfe99717cc",
-    "url": "/First-Trend-Clothing/static/css/main.98abbacb.chunk.css"
+    "revision": "0e67a87f90daf9589d9c",
+    "url": "/First-Trend-Clothing/static/css/main.0ab12e5c.chunk.css"
   },
   {
     "revision": "d908fdbdb33032ae2073",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/First-Trend-Clothing/static/js/2.a80fa12e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cfea9d8a0adfe99717cc",
-    "url": "/First-Trend-Clothing/static/js/main.cd463b33.chunk.js"
+    "revision": "0e67a87f90daf9589d9c",
+    "url": "/First-Trend-Clothing/static/js/main.3e314341.chunk.js"
   },
   {
     "revision": "a9832a032dca4449be4d",
