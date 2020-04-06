@@ -10,7 +10,7 @@
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
-    "rc-slider": "^9.2.2",s
+    "rc-slider": "^9.2.2",
     "react": "^16.12.0",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
