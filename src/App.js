@@ -760,11 +760,12 @@ function ItemPopUp() {
         <div className="item-popup-price">${selectedItem.price}</div>
       </div>
       <div className="item-popup-item-area">
+        <div className="item-popup-img">
         <img
           src={require("" + selectedItem.img)}
           alt=""
-          className="item-popup-img"
         />
+        </div>
         <div className="item-popup-purchase">
           <div className="size-select">
             <span>XS</span>
