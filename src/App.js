@@ -8,8 +8,6 @@ import Slider from "rc-slider";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  incrementCartCount,
-  decrementCartCount,
   showItemPopup,
   hideItemPopup,
   setSelectedItem,
@@ -501,7 +499,6 @@ function ColorFilter() {
 }
 
 function SizeFilter() {
-  const sizeFilter = useSelector(state => state.sizeFilter);
   const dispatch = useDispatch();
   
   const handleSelect = (key) => {
@@ -541,8 +538,6 @@ function SizeFilter() {
 }
 
 function PriceFilter() {
-  const priceFilter = useSelector(state => state.priceFilter);
-
   return (
     <div className="filter-box price-filter">
         <h4>Price:</h4>
